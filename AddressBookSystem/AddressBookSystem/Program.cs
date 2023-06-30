@@ -11,7 +11,7 @@ namespace AddressBookSystem
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the address Book System Problem");
-
+            AddressBookMain addressBookMain = new AddressBookMain();
             Console.WriteLine("Enter the First Name");
             string firstName = Console.ReadLine();
             Console.WriteLine("Enter the Last Name");
@@ -29,9 +29,25 @@ namespace AddressBookSystem
             Console.WriteLine("Enter the Email");
             string email = Console.ReadLine();
 
-            AddressBookMain addressBookMain = new AddressBookMain();
+            //AddressBookMain addressBookMain = new AddressBookMain();
 
             addressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            //Console.ReadLine();
+
+
+            //addressBookMain.AddContact("prachi", "kale", "bhf", "Nagpur", "MH", 441804, 01234456789, "abc@gmail.com");
+            //InputToCreateList(addressBookMain);
+            addressBookMain.PrintList();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Enter first name of contact to be edited");
+            string firstNameEditedContact = Console.ReadLine();
+            Console.WriteLine("Enter last name of contact to be edited");
+            string lastNameEditedContact = Console.ReadLine();
+
+            addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
+            Console.ReadLine();
         }
+
     }
 }
+
