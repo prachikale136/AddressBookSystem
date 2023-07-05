@@ -17,7 +17,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. exit");
+                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -36,6 +36,9 @@ namespace AddressBookSystem
                         break;
                     case 5:
                         addressBookMain.DeleteContact();
+                        break;
+                    case 6:
+                        addressBookMain.AddMultipleContact();
                         break;
                     default:
                         flag= false;

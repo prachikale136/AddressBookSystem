@@ -50,7 +50,7 @@ namespace AddressBookSystem
         {
             foreach (Contact contact in contactList)
             {
-
+                Console.WriteLine("--------------------------------");
                 Console.WriteLine("First Name :" + contact.firstName);
                 Console.WriteLine("LastNAme:" + contact.lastName);
                 Console.WriteLine("Address:" + contact.address);
@@ -155,8 +155,6 @@ namespace AddressBookSystem
             Contact deletedContact = null;
             Console.WriteLine("Enter the first name to be delete");
             string fname = Console.ReadLine();
-            /*Console.WriteLine("Enetr the last name to be delete");
-            string lname = Console.ReadLine();*/
             foreach(Contact contact in contactList)
             {
                 if (contact.firstName == fname)
@@ -167,11 +165,22 @@ namespace AddressBookSystem
                 }
                 else
                 {
-
+                    Console.WriteLine("NAme doesnt exist");
                 }
             }
-            
-            
+        }
+
+        public void AddMultipleContact()
+        {
+            Console.WriteLine("Enetr how many contact you want to add");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 1; i <= number; i++)
+            {
+                   AddContact();
+
+            }
+
         }
 
     }
