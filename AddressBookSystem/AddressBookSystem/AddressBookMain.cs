@@ -215,6 +215,20 @@ namespace AddressBookSystem
                 }
             }
         }
+        public bool CheckDuplicates()
+        {
+            Console.WriteLine("enetr name to check duplicate Entry");
+            string name = Console.ReadLine();
+            bool check = contactList.Any(x => x.firstName == name);
+            if (check)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     
