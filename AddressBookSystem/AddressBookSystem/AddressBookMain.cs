@@ -11,6 +11,7 @@ namespace AddressBookSystem
     {
         Contact contact = new Contact(); // Contact contact = new Contact(); 
         public List<Contact> contactList = new List<Contact>();  //here create a list for contact
+        public static Dictionary<string, List<Contact>> DictionaryBook = new Dictionary<string, List<Contact>>();
         public void AddContact()
         {
            
@@ -183,5 +184,38 @@ namespace AddressBookSystem
 
         }
 
+        public void CreateDictionary()
+        {
+            Console.WriteLine("Enter Bookname of address book");
+            string Bookname = Console.ReadLine();//key 
+            Console.WriteLine("Please enter number of person add in Contact");
+            int number = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= number; i++)
+            {
+                AddContact();
+
+            }
+            DictionaryBook.Add(Bookname, contactList.ToList());
+        }
+        public void DisplayDicttionaryList()
+        {
+            foreach (var pair in DictionaryBook.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (Contact data in DictionaryBook[pair])
+                {
+                    Console.WriteLine("First Name :   " + data.firstName);
+                    Console.WriteLine("Last Name :    " + data.lastName);
+                    Console.WriteLine("Address :      " + data.address);
+                    Console.WriteLine("City    :      " + data.city);
+                    Console.WriteLine("State   :      " + data.state);
+                    Console.WriteLine("Zip     :      " + data.zip);
+                    Console.WriteLine("Phone Number  : " + data.phoneNumber);
+                    Console.WriteLine("Email  :       " + data.email);
+                }
+            }
+        }
     }
+
+    
 }
