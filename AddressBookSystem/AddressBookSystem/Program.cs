@@ -12,42 +12,46 @@ namespace AddressBookSystem
         {
             Console.WriteLine("Welcome to the address Book System Problem");
             AddressBookMain addressBookMain = new AddressBookMain();
-            Console.WriteLine("Enter the First Name");
-            string firstName = Console.ReadLine();
-            Console.WriteLine("Enter the Last Name");
-            string lastName = Console.ReadLine();
-            Console.WriteLine("Enter the Address");
-            string address = Console.ReadLine();
-            Console.WriteLine("Enter the City");
-            string city = Console.ReadLine();
-            Console.WriteLine("Enter the State");
-            string state = Console.ReadLine();
-            Console.WriteLine("Enter Zip");
-            int zip = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Phone Number");
-            long phoneNumber = Convert.ToInt64(Console.ReadLine());
-            Console.WriteLine("Enter the Email");
-            string email = Console.ReadLine();
+            
+            
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. exit");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        addressBookMain.AddContact();
+                        break;
+                    case 2:
+                        addressBookMain.PrintList();
+                        break;
+                    case 3:
+                       
+                        addressBookMain.Edit();
+                        break;
+                    case 4:
+                        addressBookMain.PrintEditContact();
+                        break;
+                    case 5:
+                        addressBookMain.DeleteContact();
+                        break;
+                    default:
+                        flag= false;
+                        break;
 
-            //AddressBookMain addressBookMain = new AddressBookMain();
-
-            addressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-            //Console.ReadLine();
 
 
-            //addressBookMain.AddContact("prachi", "kale", "bhf", "Nagpur", "MH", 441804, 01234456789, "abc@gmail.com");
-            //InputToCreateList(addressBookMain);
-            addressBookMain.PrintList();
-            Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Enter first name of contact to be edited");
-            string firstNameEditedContact = Console.ReadLine();
-            Console.WriteLine("Enter last name of contact to be edited");
-            string lastNameEditedContact = Console.ReadLine();
+                }
 
-            addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
-            Console.ReadLine();
+
+
+
+            }
+
         }
-
     }
 }
+
 
