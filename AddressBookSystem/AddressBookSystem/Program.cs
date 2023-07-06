@@ -18,7 +18,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11. exit");
+                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11.view person \n12. exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -52,6 +52,9 @@ namespace AddressBookSystem
                         break;
                     case 10:
                         addressBookMain.Search();
+                        break;
+                    case 11:
+                        addressBookMain.ViewContact();
                         break;
                     default:
                         flag= false;
