@@ -229,6 +229,31 @@ namespace AddressBookSystem
                 return false;
             }
         }
+        public void Search()
+        {
+            Console.WriteLine("Enter your choice for search");
+            Console.WriteLine("Press 1 for city \n Press 2 for state");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Enetr your city Name");
+                    string NametoSearchCity = Console.ReadLine();
+                    foreach (Contact detail in contactList.FindAll(e => e.state == NametoSearchCity))
+                    {
+                        Console.WriteLine("city of:" + detail.firstName + detail.lastName);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr your State Name");
+                    string NametoSearchState = Console.ReadLine();
+                    foreach (Contact detail in contactList.FindAll(e => e.state == NametoSearchState))
+                    {
+                        Console.WriteLine("city of:" + detail.firstName + " " + detail.lastName);
+                    }
+                    break;
+            }
+        }
     }
 
     
