@@ -309,6 +309,25 @@ namespace AddressBookSystem
                         break;
                 }
             }
+        public void SortByPersonName()
+        {
+            List<Contact> sortByName = contactList.OrderBy(e => e.firstName + e.lastName).ToList();
+            foreach (Contact contact in sortByName)
+            {
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("First Name:" + contact.firstName);
+                Console.WriteLine("LastNAme:" + " " + contact.lastName);
+                Console.WriteLine("Address:" + " " + contact.address);
+                Console.WriteLine("City:" + " " + contact.city);
+                Console.WriteLine("State:" + " " + contact.state);
+                Console.WriteLine("zip:" + " " + contact.zip);
+                Console.WriteLine("PhoneNumber:" + " " + contact.phoneNumber);
+                Console.WriteLine("Email:" + " " + contact.email);
+
+
+            }
+        }
+
     }
 }
 
