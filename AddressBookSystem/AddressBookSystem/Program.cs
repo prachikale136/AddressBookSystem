@@ -13,13 +13,16 @@ namespace AddressBookSystem
         {
             Console.WriteLine("Welcome to the address Book System Problem");
             AddressBookMain addressBookMain = new AddressBookMain();
-            
-            
+            string path = @"D:\RFP-287\Assignment\AddressBookSystem\AddressBookSystem\AddressBookSystem\File.txt";
+            PersonContactfile personContactfile = new PersonContactfile();
+
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11.view person \n12. count contact \n13. sort peron by name \n14. sort by zip,state and city \n15. exit");
+                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11.view person \n12. count contact \n13. sort peron by name \n14. sort by zip,state and city \n15.Read contact from file \n16. Write contact into file \n17. exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
+
+                List<Contact> ContactList = null;
                 switch (choice)
                 {
                     case 1:
@@ -64,6 +67,12 @@ namespace AddressBookSystem
                         break;
                     case 14:
                         addressBookMain.SortContactByCity_State_ZipCode();
+                        break;
+                    case 15:
+                        addressBookMain.ReadContactFromFile(ContactList);
+                        break;
+                    case 16:
+                        addressBookMain.WriteContactIntoFile(ContactList);
                         break;
                     default:
                         flag= false;
