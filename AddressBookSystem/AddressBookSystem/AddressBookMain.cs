@@ -14,7 +14,7 @@ namespace AddressBookSystem
         public static Dictionary<string, List<Contact>> DictionaryBook = new Dictionary<string, List<Contact>>();
         public void AddContact()
         {
-           
+
 
             // calling variables by using object
             Console.WriteLine("Enter the first Name");
@@ -70,9 +70,9 @@ namespace AddressBookSystem
             Console.WriteLine("Enter the first name to be edited");
             string fname = Console.ReadLine();
             Console.WriteLine("Enetr the last name to be edited");
-            string lname = Console.ReadLine();            
+            string lname = Console.ReadLine();
             if (contact.firstName == fname && contact.lastName == lname)
-                {
+            {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine("Enter 1 for edit First Name");
                 Console.WriteLine("Enter 2 for edit Last Name");
@@ -135,7 +135,7 @@ namespace AddressBookSystem
             }
         }
 
-       
+
 
         public void PrintEditContact()
         {
@@ -156,7 +156,7 @@ namespace AddressBookSystem
             Contact deletedContact = null;
             Console.WriteLine("Enter the first name to be delete");
             string fname = Console.ReadLine();
-            foreach(Contact contact in contactList)
+            foreach (Contact contact in contactList)
             {
                 if (contact.firstName == fname)
                 {
@@ -178,7 +178,7 @@ namespace AddressBookSystem
 
             for (int i = 1; i <= number; i++)
             {
-                   AddContact();
+                AddContact();
 
             }
 
@@ -268,47 +268,47 @@ namespace AddressBookSystem
                     {
                         Console.WriteLine("View Person Name:" + detail.firstName + " " + detail.lastName);
                     }
-                break;
+                    break;
                 case 2:
                     Console.WriteLine("Enetr your State Name");
                     string NametoSearchState = Console.ReadLine();
                     foreach (Contact detail in contactList.FindAll(e => e.state == NametoSearchState))
                     {
-                        Console.WriteLine("city of:" + detail.firstName + " "  + detail.lastName);
+                        Console.WriteLine("city of:" + detail.firstName + " " + detail.lastName);
                     }
-                break;
+                    break;
             }
         }
-            public void CountContact()
+        public void CountContact()
+        {
+            int count = 0;
+            Console.WriteLine("Enter choice for count");
+            Console.WriteLine("press 1 for city, \n press 2 for state");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
             {
-                int count = 0;
-                Console.WriteLine("Enter choice for count");
-                Console.WriteLine("press 1 for city, \n press 2 for state");
-                int choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice)
-                {
-                    case 1:
-                        Console.WriteLine("Enetr your city Name");
-                        string city = Console.ReadLine();
-                        foreach (Contact detail in contactList.FindAll(e => e.city == city))
-                        {
-                            //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
-                            count = contactList.Count();
-                        }
-                        Console.WriteLine(count);
-                        break;
-                    case 2:
-                        Console.WriteLine("Enetr your state Name");
-                        string state = Console.ReadLine();
-                        foreach (Contact detail in contactList.FindAll(e => e.state == state))
-                        {
-                            //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
-                            count = contactList.Count();
-                        }
-                        Console.WriteLine(count);
-                        break;
-                }
+                case 1:
+                    Console.WriteLine("Enetr your city Name");
+                    string city = Console.ReadLine();
+                    foreach (Contact detail in contactList.FindAll(e => e.city == city))
+                    {
+                        //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
+                        count = contactList.Count();
+                    }
+                    Console.WriteLine(count);
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr your state Name");
+                    string state = Console.ReadLine();
+                    foreach (Contact detail in contactList.FindAll(e => e.state == state))
+                    {
+                        //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
+                        count = contactList.Count();
+                    }
+                    Console.WriteLine(count);
+                    break;
             }
+        }
         public void SortByPersonName()
         {
             List<Contact> sortByName = contactList.OrderBy(e => e.firstName + e.lastName).ToList();
@@ -327,7 +327,55 @@ namespace AddressBookSystem
 
             }
         }
+        public void SortContactByCity_State_ZipCode()
+        {
+            Console.WriteLine("Select option to sort by \n1.City \n2.State \n3.Zip");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    foreach (var item in contactList.OrderBy(x => x.city))
+                    {
+                        Console.WriteLine("First Name :   " + item.firstName);
+                        Console.WriteLine("Last Name :    " + item.lastName);
+                        Console.WriteLine("Address :      " + item.address);
+                        Console.WriteLine("City    :      " + item.city);
+                        Console.WriteLine("State   :      " + item.state);
+                        Console.WriteLine("Zip     :      " + item.zip);
+                        Console.WriteLine("Phone Number  : " + item.phoneNumber);
+                        Console.WriteLine("email  :       " + item.email);
+                    }
+                    break;
+                case 2:
+                    foreach (var item in contactList.OrderBy(x => x.state))
+                    {
+                        Console.WriteLine("First Name :   " + item.firstName);
+                        Console.WriteLine("Last Name :    " + item.lastName);
+                        Console.WriteLine("Address :      " + item.address);
+                        Console.WriteLine("City    :      " + item.city);
+                        Console.WriteLine("State   :      " + item.state);
+                        Console.WriteLine("Zip     :      " + item.zip);
+                        Console.WriteLine("Phone Number  : " + item.phoneNumber);
+                        Console.WriteLine("email  :       " + item.email);
+                    }
+                    break;
+                case 3:
+                    foreach (var item in contactList.OrderBy(x => x.zip))
+                    {
+                        Console.WriteLine("First Name :   " + item.firstName);
+                        Console.WriteLine("Last Name :    " + item.lastName);
+                        Console.WriteLine("Address :      " + item.address);
+                        Console.WriteLine("City    :      " + item.city);
+                        Console.WriteLine("State   :      " + item.state);
+                        Console.WriteLine("Zip     :      " + item.zip);
+                        Console.WriteLine("Phone Number  : " + item.phoneNumber);
+                        Console.WriteLine("email  :       " + item.email);
+                    }
+                    break;
+            }
 
+
+        }
     }
 }
 

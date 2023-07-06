@@ -18,7 +18,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11.view person \n12. count contact \n13. sort peron by name \n14. exit");
+                Console.WriteLine("\n1 For Add Contact \n2. for print contact \n3. edit Contact \n4. Print edited contact \n5. for deletete contact \n6. Add multiple contact \n7. for Create Dictionary \n8. for display dictionary \n9. for check duplicates \n10. search \n11.view person \n12. count contact \n13. sort peron by name \n14. sort by zip,state and city \n15. exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -61,6 +61,9 @@ namespace AddressBookSystem
                         break;
                     case 13:
                         addressBookMain.SortByPersonName();
+                        break;
+                    case 14:
+                        addressBookMain.SortContactByCity_State_ZipCode();
                         break;
                     default:
                         flag= false;
